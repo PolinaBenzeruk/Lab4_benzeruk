@@ -13,4 +13,4 @@ jobs:
       - name: Install and Run Biome Linter
         run: |
           npm install --save-dev --save-exact @biomejs/biome
-          npx @biomejs/biome check ProgramCode.js
+          npx @biomejs/biome check ProgramCodeModified.js
