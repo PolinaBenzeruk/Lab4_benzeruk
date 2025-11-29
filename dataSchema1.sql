@@ -118,4 +118,16 @@ CREATE TABLE notification (
 
 -- Indexes
 CREATE INDEX idx_monitoring_user ON monitorings (user_id);
-CREATE INDEX
+CREATE INDEX idx_tempmon_monitoring ON temperature_monitoring (monitoring_id);
+CREATE INDEX idx_secmon_monitoring ON security_monitoring (monitoring_id);
+CREATE INDEX idx_currtemp_monitoring ON current_temperature (
+    temp_monitoring_id
+);
+CREATE INDEX idx_currsec_monitoring ON current_security_status (
+    security_monitoring_id
+);
+CREATE INDEX idx_notif_monitoring ON notification (monitoring_id);
+CREATE INDEX idx_notif_user ON notification (user_id);
+CREATE INDEX idx_sensor_location ON sensor (location_id);
+CREATE INDEX idx_sensor_monitoring ON sensor (monitoring_id);
+CREATE INDEX idx_location_user ON locations (user_id);
