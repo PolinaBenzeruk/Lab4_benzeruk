@@ -1,0 +1,34 @@
+name: Print Software Versions
+on:
+  push:
+    branches:
+      - main
+jobs:
+  app_versions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Show software versions (Data Processing Level)
+        run: |
+          echo "Python version:"
+          python3 --version
+          echo "Node.js version:"
+          node -v
+          echo "Java version:"
+          java -version
+
+  db_versions:
+    needs: app_versions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Show Database Versions (Data Access Level)
+        run: |
+          echo "PostgreSQL version:"
+          psql --version
+          echo "MySQL version:"
+          mysql --version || echo "MySQL not installed"
